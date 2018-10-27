@@ -20,7 +20,7 @@ class ConversionViewController: UIViewController {
         var outputUnit: String
     }
     var conversions = [Conversion]()
-    var currentConversion = 0   //will be set in the viewDidLoad
+    var currentConversion: Conversion!  //will be set in the viewDidLoad
     
     
     
@@ -34,21 +34,22 @@ class ConversionViewController: UIViewController {
         Conversion(label: "kilometers to miles" , inputUnit: "km", outputUnit: "mi")
         ]
         
-        currentConversion = conversions.index(where: {$0.label == "fahrenheit to celsius"}) ?? 0    //could just set to 0, this makes modifying conversion table simpler
+        currentConversion = conversions[0]
         print(currentConversion)
-        ChangeInputOutput(input: conversions[currentConversion].label , output: conversions[currentConversion].label)
+        ChangeInputOutput(input: currentConversion.inputUnit , output: currentConversion.outputUnit)
         // Do any additional setup after loading the view.
     }
     
     // MARK: - Navigation
 
+    
     @IBAction func ConvertButton(_ sender: Any) {
-        let alert = UIAlertController(title:"Choose conversion",message:"", preferredStyle: UIAlertController.Style.actionSheet)
-        for x in 1...conversions.count{
+    let alert = UIAlertController(title:"Choose conversion",message:"", preferredStyle: UIAlertController.Style.actionSheet)
+        for x in conversions{
             //Will add an action to the actionSheet for every entry in the conversions array and populate the actionSheet with the correct information
-            alert.addAction(UIAlertAction(title: conversions[x].label , style: UIAlertAction.Style.default, handler: {
+            alert.addAction(UIAlertAction(title: x.label , style: UIAlertAction.Style.default, handler: {
                 (alertAction) -> Void in
-                self.ChangeInputOutput(input: self.conversions[x].inputUnit , output: self.conversions[x].outputUnit)
+                self.ChangeInputOutput(input: x.inputUnit , output: x.outputUnit)
                 self.currentConversion = x;
             }))
         }

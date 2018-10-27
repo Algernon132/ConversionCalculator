@@ -74,7 +74,7 @@
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="ConvertButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="po8-BA-gq9"/>
+                                                            <action selector="ConvertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jzU-vT-YYa"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -236,7 +236,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="ConvertButton" destination="Jw0-yv-fTh" id="YMm-tw-z3P"/>
                         <outlet property="inputDisplay" destination="RJt-rg-iLQ" id="nyw-px-Xdf"/>
                         <outlet property="outputDisplay" destination="wlN-5l-vPm" id="n9g-i2-D6O"/>
                     </connections>
