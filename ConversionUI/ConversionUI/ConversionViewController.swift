@@ -52,6 +52,7 @@ class ConversionViewController: UIViewController {
                 self.currentConversion = x;
             }))
         }
+        self.present(alert, animated:true, completion: nil)
     }
     
     func ChangeInputOutput(input: String, output: String){
